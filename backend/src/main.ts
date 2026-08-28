@@ -1,6 +1,8 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import helmet from 'helmet';
+import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import { ValidationPipe } from '@nestjs/common';
 
 async function bootstrap() {
     const app = await NestFactory.create(AppModule);
@@ -14,6 +16,22 @@ async function bootstrap() {
         credentials: true,
     });
 
+    // SWAGGER
+    const config = new DocumentBuilder().setTitle('Mozzi API').build();
+    const document = SwaggerModule.createDocument(app, config);
+    SwaggerModule.setup('Mozzi-api', app, document);
+
+    // GUARD
+    app.useGlobalGuards();
+
+    // INTERCEPTOR
+    app.useGlobalInterceptors();
+
+    // PIPE
+    app.useGlobalPipes(new ValidationPipe());
+
+    // FILTER
+    app.useGlobalFilters();
 
     await app.listen(Number(process.env.PORT));
 }
