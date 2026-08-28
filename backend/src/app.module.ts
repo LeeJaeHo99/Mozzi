@@ -10,12 +10,10 @@ import { FriendModule } from './friend/friend.module';
 import { MessageModule } from './message/message.module';
 import { NotificationModule } from './notification/notification.module';
 import { HistoryModule } from './history/history.module';
-import { SettingModule } from './setting/setting.module';
 import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
 import { Auth } from './auth/entities/auth.entity';
 import { User } from './user/entities/user.entity';
-import { Setting } from './setting/entities/setting.entity';
 import { Friend } from './friend/entities/friend.entity';
 import { Message } from './message/entities/message.entity';
 import { Payment } from './payment/entities/payment.entity';
@@ -41,7 +39,6 @@ import { Report } from './report/entities/report.entity';
             entities: [
                 Auth,
                 User,
-                Setting,
                 Friend,
                 Message,
                 Notification,
@@ -59,7 +56,6 @@ import { Report } from './report/entities/report.entity';
         MessageModule,
         NotificationModule,
         HistoryModule,
-        SettingModule,
         UserModule,
         AuthModule,
         TokenModule,
