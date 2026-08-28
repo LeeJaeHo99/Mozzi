@@ -1,0 +1,9 @@
+{
+    "name": "mozzi",
+    "private": true,
+    "scripts": {
+        "w": "npm run dev --prefix frontend/web",
+        "m": "npm run ios --prefix frontend/mobile",
+        "b": "npm run start:dev --prefix backend"
+    }
+}
