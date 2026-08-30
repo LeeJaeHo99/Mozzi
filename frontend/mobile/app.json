@@ -3,9 +3,8 @@
     "name": "mobile",
     "slug": "mobile",
     "version": "1.0.0",
-
     "scheme": "mobile",
-    "platforms": ["ios", "android"],
+    "platforms": ["ios"],
     "web": {
       "bundler": "metro",
       "output": "static",
@@ -19,28 +18,27 @@
           "image": "./assets/splash.png",
           "backgroundColor": "#ffffff"
         }
+      ],
+      [
+        "@react-native-google-signin/google-signin",
+        {
+          "iosUrlScheme": "com.googleusercontent.apps.1015838462503-698rtta542j50n6rrrbu2s6qepc2ej8m"
+        }
       ]
     ],
     "experiments": {
       "typedRoutes": true,
-
       "tsconfigPaths": true
     },
-
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-
     "userInterfaceStyle": "light",
-
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
-      "supportsTablet": true
-    },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      }
+      "supportsTablet": true,
+      "bundleIdentifier": "com.mozzi.mobile"
     }
   }
 }
