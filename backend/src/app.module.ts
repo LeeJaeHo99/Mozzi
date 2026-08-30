@@ -25,6 +25,7 @@ import { Token } from './token/entities/token.entity';
 import { AdminModule } from './admin/admin.module';
 import { ReportModule } from './report/report.module';
 import { Report } from './report/entities/report.entity';
+import { MatchingModule } from './matching/matching.module';
 
 @Module({
     imports: [
@@ -61,6 +62,7 @@ import { Report } from './report/entities/report.entity';
         TokenModule,
         AdminModule,
         ReportModule,
+        MatchingModule,
     ],
     controllers: [AppController],
     providers: [AppService],
