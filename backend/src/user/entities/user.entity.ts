@@ -18,7 +18,8 @@ export class User extends Base{
     hiddenNickname!: string;
 
     @Column()
-    description!: string;
+    @Column({ type: 'varchar', nullable: true })
+    description!: string | null;
 
     @Column({ type: 'enum', enum: Gender})
     gender!: Gender;
