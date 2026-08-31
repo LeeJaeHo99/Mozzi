@@ -18,7 +18,6 @@ import { Friend } from './friend/entities/friend.entity';
 import { Message } from './message/entities/message.entity';
 import { Payment } from './payment/entities/payment.entity';
 import { History } from './history/entities/history.entity';
-import { Search } from './search/entities/search.entity';
 import { Notification } from './notification/entities/notification.entity';
 import { TokenModule } from './token/token.module';
 import { Token } from './token/entities/token.entity';
@@ -26,6 +25,7 @@ import { AdminModule } from './admin/admin.module';
 import { ReportModule } from './report/report.module';
 import { Report } from './report/entities/report.entity';
 import { MatchingModule } from './matching/matching.module';
+import { Matching } from './matching/entities/matching.entity';
 
 @Module({
     imports: [
@@ -45,9 +45,9 @@ import { MatchingModule } from './matching/matching.module';
                 Notification,
                 Payment,
                 History,
-                Search,
                 Token,
                 Report,
+                Matching,
             ],
             synchronize: true,
         }),
