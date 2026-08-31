@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { AuthController } from './auth.controller';
+import { JwtAuthGuard } from './guards/JwtAuth.guard';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from 'src/user/entities/user.entity';
 import { JwtModule, JwtModuleOptions } from '@nestjs/jwt';
@@ -24,7 +25,7 @@ import type { StringValue } from 'ms';
         })
     ],
     controllers: [AuthController],
-    providers: [AuthService],
-    exports: [JwtModule],
+    providers: [AuthService, JwtAuthGuard],
+    exports: [JwtModule, JwtAuthGuard],
 })
 export class AuthModule {}

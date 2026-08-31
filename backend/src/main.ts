@@ -4,6 +4,7 @@ import helmet from 'helmet';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { ValidationPipe } from '@nestjs/common';
 import { HttpExceptionFilter } from './base/filters/httpException.filter';
+import { LogInterceptor } from './base/interceptors/LogInterceptor.interceptor';
 
 async function bootstrap() {
     const app = await NestFactory.create(AppModule);
@@ -26,7 +27,7 @@ async function bootstrap() {
     app.useGlobalGuards();
 
     // INTERCEPTOR
-    app.useGlobalInterceptors();
+    app.useGlobalInterceptors(new LogInterceptor());
 
     // PIPE
     app.useGlobalPipes(new ValidationPipe());
