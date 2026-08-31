@@ -9,6 +9,7 @@ import { History } from "src/history/entities/history.entity";
 import { Notification } from "src/notification/entities/notification.entity";
 import { Payment } from "src/payment/entities/payment.entity";
 import { Token } from "src/token/entities/token.entity";
+import { Report } from "src/report/entities/report.entity";
 
 @Entity()
 export class User extends Base {
@@ -79,6 +80,12 @@ export class User extends Base {
 
     @OneToMany(() => Payment, (payment) => payment.userId)
     paymentUsers!: Payment[];
+
+    @OneToMany(() => Report, (report) => report.reporterId)
+    reporter!: Report[];
+    
+    @OneToMany(() => Report, (report) => report.reportedUserId)
+    reportedUser!: Report[];
 
     @OneToOne(() => Token, (token) => token.userId)
     tokenUser!: Token;
