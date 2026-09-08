@@ -37,7 +37,7 @@ export class FriendService {
     // 친구 신청 거절
     async rejectRequest(){}
 
-    // 친한친구 설정 / 해제
+    // 친한 친구 설정 / 해제
     async updateBestFriend(){}
 
     // 친구 제거

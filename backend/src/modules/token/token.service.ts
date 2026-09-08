@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class TokenService {
-    // 토큰 갯수 가져오기
+    // 토큰 갯수 조회
     async getMyTokenNum(){}
 
     // 토큰 구매
