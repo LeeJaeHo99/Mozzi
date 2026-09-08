@@ -1,5 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { AppController } from './app.controller';
+import { AppController } from './modules/app.controller';
 import { AppService } from './app.service';
 import { beforeEach, describe, it } from 'node:test';
 

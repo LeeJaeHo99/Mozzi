@@ -1,10 +1,10 @@
-import { NestFactory } from '@nestjs/core';
+import { NestFactory, Reflector } from '@nestjs/core';
 import { AppModule } from './app.module';
 import helmet from 'helmet';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
-import { ValidationPipe } from '@nestjs/common';
-import { HttpExceptionFilter } from './base/filters/httpException.filter';
-import { LogInterceptor } from './base/interceptors/LogInterceptor.interceptor';
+import { ClassSerializerInterceptor, ValidationPipe } from '@nestjs/common';
+import { HttpExceptionFilter } from './modules/base/filters/httpException.filter';
+import { LogInterceptor } from './modules/base/interceptors/LogInterceptor.interceptor';
 
 async function bootstrap() {
     const app = await NestFactory.create(AppModule);
@@ -27,7 +27,10 @@ async function bootstrap() {
     app.useGlobalGuards();
 
     // INTERCEPTOR
-    app.useGlobalInterceptors(new LogInterceptor());
+    app.useGlobalInterceptors(
+        new LogInterceptor(),
+        new ClassSerializerInterceptor(app.get(Reflector))
+    );
 
     // PIPE
     app.useGlobalPipes(new ValidationPipe());
